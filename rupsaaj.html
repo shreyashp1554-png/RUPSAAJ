@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RupSaaj | Handmade Jewellery</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+    background:#fffaf5;
+    color:#38251c;
+}
+
+/* HEADER */
+header{
+    background:#4a211e;
+    color:white;
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#f4d49b;
+}
+
+.logo span{
+    display:block;
+    font-size:11px;
+    letter-spacing:3px;
+    color:white;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:22px;
+    font-size:14px;
+}
+
+/* HERO */
+.hero{
+    min-height:330px;
+    background:linear-gradient(90deg,rgba(50,20,15,.85),rgba(50,20,15,.35)),
+    url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1400')
+    center/cover;
+    display:flex;
+    align-items:center;
+    padding:50px 8%;
+    color:white;
+}
+
+.hero h1{
+    font-size:45px;
+    color:#f5d49c;
+}
+
+.hero p{
+    margin:15px 0;
+    font-size:17px;
+}
+
+.hero button{
+    background:#d5a35d;
+    color:#3d211b;
+    border:0;
+    padding:13px 28px;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SECTION */
+section{
+    padding:45px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section-title h2{
+    font-size:30px;
+    color:#672d29;
+}
+
+.section-title p{
+    color:#85675a;
+    margin-top:8px;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.product{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px #00000012;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+}
+
+.product img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:17px;
+}
+
+.product-info h3{
+    color:#592d28;
+    margin-bottom:8px;
+}
+
+.price{
+    color:#a66b2d;
+    font-size:20px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.product button{
+    width:100%;
+    padding:11px;
+    border:0;
+    background:#672d29;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* ORDER FORM */
+.order-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:start;
+}
+
+.order-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 18px #00000012;
+}
+
+.order-box h3{
+    color:#672d29;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin:13px 0 6px;
+    font-weight:600;
+    font-size:14px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddcfc2;
+    border-radius:6px;
+    outline:none;
+    background:#fffdfb;
+}
+
+input:focus,select:focus,textarea:focus{
+    border-color:#a66b2d;
+}
+
+textarea{
+    resize:vertical;
+    min-height:90px;
+}
+
+.submit-btn{
+    width:100%;
+    background:#672d29;
+    color:white;
+    border:0;
+    padding:15px;
+    margin-top:20px;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#a66b2d;
+}
+
+/* ORDER SUMMARY */
+.summary{
+    background:#fff8ed;
+    border:1px solid #ead7bd;
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.summary p{
+    display:flex;
+    justify-content:space-between;
+    margin:12px 0;
+}
+
+.total{
+    border-top:1px solid #d9c4a8;
+    padding-top:12px;
+    font-size:20px;
+    font-weight:bold;
+    color:#672d29;
+}
+
+/* FOOTER */
+footer{
+    background:#4a211e;
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+footer h2{
+    color:#f4d49b;
+    margin-bottom:10px;
+}
+
+@media(max-width:750px){
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:0 7px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .order-container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        RupSaaj
+        <span>MARATHMOL JEWELLERY</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#order">Order Now</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<div class="hero" id="home">
+    <div>
+        <h1>Handmade With Love</h1>
+        <p>Authentic Maharashtrian Handmade Jewellery</p>
+        <p>Premium Traditional Designs | Customized Jewellery</p>
+        <button onclick="document.getElementById('products').scrollIntoView()">
+            Explore Collection
+        </button>
+    </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+
+    <div class="section-title">
+        <h2>Our Jewellery Collection</h2>
+        <p>Beautiful handmade jewellery made specially for you.</p>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="c:\Users\Shreyash\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\8C0FAF7AF87FB6EFBEF651CAEA1FE6ACEAEDD055\transfers\2026-46\WhatsApp Image 2026-11-13 at 9.23.35 PM.jpeg">
+            <div class="product-info">
+                <h3>Traditional Necklace</h3>
+                <p>Beautiful traditional handmade design.</p>
+                <div class="price">₹399</div>
+                <button onclick="selectProduct('Traditional Necklace',850)">
+                    Order Now
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="c:\Users\Shreyash\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\8C0FAF7AF87FB6EFBEF651CAEA1FE6ACEAEDD055\transfers\2026-46\WhatsApp Image 2026-11-13 at 9.23.35 PM.jpeg">
+            <div class="product-info">
+                <h3>Handmade Earrings</h3>
+                <p>Elegant handmade traditional earrings.</p>
+                <div class="price">₹899</div>
+                <button onclick="selectProduct('Handmade Earrings',350)">
+                    Order Now
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="c:\Users\Shreyash\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\8C0FAF7AF87FB6EFBEF651CAEA1FE6ACEAEDD055\transfers\2026-46\WhatsApp Image 2026-11-13 at 9.24.13 PM.jpeg">
+            <div class="product-info">
+                <h3>Customized Jewellery</h3>
+                <p>Design your own jewellery with us.</p>
+                <div class="price">₹299</div>
+                <button onclick="selectProduct('Customized Jewellery',1200)">
+                    Order Now
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="c:\Users\Shreyash\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\8C0FAF7AF87FB6EFBEF651CAEA1FE6ACEAEDD055\transfers\2026-46\WhatsApp Image 2026-11-13 at 9.27.27 PM.jpeg">
+            <div class="product-info">
+                <h3>Traditional Bangles</h3>
+                <p>Beautiful handmade traditional bangles.</p>
+                <div class="price">₹399</div>
+                <button onclick="selectProduct('Traditional Bangles',550)">
+                    Order Now
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+    <!-- INSTAGRAM SECTION -->
+<section style="text-align:center; padding:25px 10px;">
+
+    <h2 style="color:#672d29; margin-bottom:10px;">
+        view more on Instagram
+    </h2>
+
+    <a href="https://www.instagram.com/rupsaaj_jewellery/"
+       target="_blank"
+       style="color:#a66b2d;
+       font-size:22px;
+       font-weight:bold;
+       text-decoration:none;">
+
+       @rupsaaj_jewellery
+
+    </a>
+
+</section>
+<!-- ORDER FORM -->
+<section id="order">
+
+<div class="section-title">
+    <h2>Place Your Order</h2>
+    <p>Fill in your details to order your favourite jewellery.</p>
+</div>
+
+<div class="order-container">
+
+    <!-- CUSTOMER DETAILS -->
+    <div class="order-box">
+
+        <h3>Customer & Delivery Details</h3>
+
+        <form id="orderForm">
+
+            <label>Customer Name</label>
+            <input type="text" id="customer" placeholder="Enter your full name" required>
+
+            <label>Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="10 digit mobile number"
+            pattern="[6-9][0-9]{9}" maxlength="10" required>
+
+            <label>Select Jewellery</label>
+            <select id="product" onchange="updateTotal()" required>
+                <option value="">Select Product</option>
+                <option value="Traditional Necklace">Traditional Necklace</option>
+                <option value="Handmade Earrings">Handmade Earrings</option>
+                <option value="Customized Jewellery">Customized Jewellery</option>
+                <option value="Traditional Bangles">Traditional Bangles</option>
+            </select>
+
+            <label>Quantity</label>
+            <input type="number" id="quantity" value="1" min="1"
+            onchange="updateTotal()" oninput="updateTotal()" required>
+
+            <label>Customization Details</label>
+            <textarea id="custom" placeholder="Describe your required design, colour, size etc."></textarea>
+
+            <label>Full Delivery Address</label>
+            <textarea id="address" placeholder="House number, street, village, city, district, PIN code" required></textarea>
+
+            <label>Payment Method</label>
+            <select id="payment">
+                <option value="Cash on Delivery">Cash on Delivery</option>
+                <option value="UPI">UPI</option>
+                <option value="Online Payment">Online Payment</option>
+            </select>
+
+            <button type="submit" class="submit-btn">
+                Place Order on WhatsApp
+            </button>
+
+        </form>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="order-box">
+
+        <h3>Order Summary</h3>
+
+        <div class="summary">
+
+            <p>
+                <span>Product</span>
+                <strong id="summaryProduct">Not Selected</strong>
+            </p>
+
+            <p>
+                <span>Price</span>
+                <strong id="summaryPrice">₹0</strong>
+            </p>
+
+            <p>
+                <span>Quantity</span>
+                <strong id="summaryQuantity">1</strong>
+            </p>
+
+            <p>
+                <span>Delivery Charges</span>
+                <strong>₹50</strong>
+            </p>
+
+            <p class="total">
+                <span>Total Amount</span>
+                <strong id="total">₹50</strong>
+            </p>
+
+        </div>
+
+        <br>
+        <h3>Delivery Information</h3>
+        <p>✓ Delivery available across India.</p>
+        <br>
+        <p>✓ Handmade products are prepared with care.</p>
+        <br>
+        <p>✓ Customized designs are available.</p>
+        <br>
+        <p>✓ Order confirmation through WhatsApp.</p>
+
+    </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <h2>RupSaaj</h2>
+    <p>Authentic Maharashtrian Handmade Jewellery</p>
+    <p>Premium Traditional Designs | Made with Love in Maharashtra</p>
+    <br>
+    <p>Pan India Shipping Available</p>
+    <p>DM to Order | WhatsApp Available</p>
+    <p>+919359226370</p>
+    <p>+917588945005</p>
+    <br>
+</footer>
+
+<script>
+
+    prices = {
+    "Traditional Necklace":850,
+    "Handmade Earrings":350,
+    "Customized Jewellery":1200,
+    "Traditional Bangles":550
+};
+
+function selectProduct(name,price){
+
+    document.getElementById("product").value=name;
+
+    updateTotal();
+
+    document.getElementById("order").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function updateTotal(){
+
+    name=document.getElementById("product").value;
+
+    qty=parseInt(document.getElementById("quantity").value) || 1;
+
+    price=prices[name] || 0;
+
+    delivery=50;
+
+    document.getElementById("summaryProduct").innerText=name || "Not Selected";
+
+    document.getElementById("summaryPrice").innerText="₹"+price;
+
+    document.getElementById("summaryQuantity").innerText=qty;
+
+    document.getElementById("total").innerText="₹"+(price*qty+delivery);
+}
+
+document.getElementById("orderForm").addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    name=document.getElementById("customer").value;
+    mobile=document.getElementById("mobile").value;
+    email=document.getElementById("email").value;
+    product=document.getElementById("product").value;
+    qty=document.getElementById("quantity").value;
+    custom=document.getElementById("custom").value;
+    address=document.getElementById("address").value;
+    payment=document.getElementById("payment").value;
+
+    price=prices[product];
+    total=(price*qty)+50;
+
+    // CHANGE THIS TO YOUR BUSINESS WHATSAPP NUMBER
+    whatsappNumber="919876543210";
+
+    message=
+    "NEW RUPSAAJ ORDER%0A"+
+    "------------------------%0A"+
+    "Customer: "+name+"%0A"+
+    "Mobile: "+mobile+"%0A"+
+    "Email: "+email+"%0A"+
+    "Product: "+product+"%0A"+
+    "Quantity: "+qty+"%0A"+
+    "Price: ₹"+price+"%0A"+
+    "Customization: "+custom+"%0A"+
+    "Address: "+address+"%0A"+
+    "Payment: "+payment+"%0A"+
+    "Delivery: ₹50%0A"+
+    "Total: ₹"+total;
+
+    url="https://wa.me/"+whatsappNumber+"?text="+message;
+
+    window.open(url,"_blank");
+
+});
+
+</script>
+
+</body>
+</html>
